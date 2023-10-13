@@ -1,5 +1,5 @@
-let age: number = 20;
+//arrays in typeScript
 
-if (age < 50)
-    age += 10;
-console.log(age);
+// in javaScript an array can contains any type of value in a single array but in TS we have to specify the type of array elements
+
+let numbers: number[] = [1,2,3];
