@@ -1,14 +1,22 @@
-// The Never Type
+//Classes in TS
 
-function processEvents(): never {
-    while(true) {
-        //Read a message from the queue
+class Account {
+    id: number;
+    owner: string;
+    balance: number;
+
+    constructor(id: number, owner: string, balance: number){
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    };
+
+    deposit ( amount : number ) : void{
+        if(amount <= 0){
+            throw new Error('invalid amount')
+        }
+        else{
+            this.balance += amount;
+        }
     }
-}
-
-processEvents();
-console.log('Hello World'); //this line will never get executed because upper function never returns
-
-//agar mai yaha se never hata du to hame kabhi warning nahi aayegi ki last line execute nahi hogi yaha never keyword help krta hai hamein warning dene me
-
-// is warning ko on krne ke liye allowunreachablecode ko configuration me false krna pdega
+};
