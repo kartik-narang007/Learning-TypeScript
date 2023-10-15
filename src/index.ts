@@ -4,7 +4,7 @@ class Ride{
     start() {Ride._activeRides++};
     stop() {Ride._activeRides--};
 
-    get activeRides(){
+    static get activeRides(){
         return Ride._activeRides;
     }
 }
@@ -15,4 +15,4 @@ ride1.start();
 let ride2 = new Ride();
 ride2.start();
 
-console.log(Ride._activeRides);
+console.log(Ride.activeRides);
