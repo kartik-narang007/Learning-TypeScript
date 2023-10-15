@@ -9,7 +9,7 @@ class Account {
     constructor(
         public readonly id: number,
         public owner: string,
-        private balance: number
+        private _balance: number
     )
     {
         // this.id = id;
@@ -22,12 +22,17 @@ class Account {
             throw new Error('invalid amount')
         }
         else{
-            this.balance += amount;
+            this._balance += amount;
         }
     }
     
-    getBalance(): number{
+    get balance(): number{
         return this.balance;
+    }
+    set balance(value: number) {
+        if(value<0)
+            throw new Error('Invalid Value');
+        this._balance = value;
     }
 };
 
@@ -38,4 +43,4 @@ let account = new Account(1,'kartik',0);
 account.deposit(100);
 console.log(account instanceof Account);
 // console.log(account.balance) won't work since balance is a private variable
-console.log(account.getBalance());
+console.log(account.balance);
