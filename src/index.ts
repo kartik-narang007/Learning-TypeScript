@@ -1,10 +1,18 @@
-// Index Signatures in TS
+class Ride{
+   private static _activeRides: number = 0;
 
-class SeatAssignment {
-    [seatNumber: string]: string;
+    start() {Ride._activeRides++};
+    stop() {Ride._activeRides--};
+
+    get activeRides(){
+        return Ride._activeRides;
+    }
 }
 
-let seats = new SeatAssignment();
+let ride1 = new Ride();
+ride1.start();
 
-seats.A1 = 'kartik';
-seats.A2 = 'premdeep';
+let ride2 = new Ride();
+ride2.start();
+
+console.log(Ride._activeRides);
