@@ -1,29 +1,7 @@
-//Optional Chaining Types in TS
+// The nullish Coalescing Operator
 
-type Customer = {
-    birthday?: Date
-};
-function getCustomer(id: number) : Customer | null | undefined {
+let speed: number | null = null;
 
-    return id === 0 ? null : {birthday: new Date()};
+let ride = {
+    speed: speed ?? 30 // '??' -  nullish coalescing operator
 }
-
-let customer =  getCustomer(0);
-// if(customer !== null && customer !== undefined)
-//Optional property access operator
-
-    console.log(customer?.birthday?.getFullYear());
-
-
-//Optional element access operator
-// if(customer !== null && customer !== undefined)
-// short form     customers?.[0]
-
-
-//optional call operator
-
-// let log: any = (message: string) => console.log(message); 
-
-let log: any = null;
-
-log?.('a');
