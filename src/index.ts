@@ -1,14 +1,15 @@
-//Objects in TS
+//Type Aliases in TS
 
-let employee:{
+type Employee = {
     readonly id: number,
-    name:string,
+    name: string,
     retire: (date:Date) => void
-} = 
-{
-    id: 1, 
+}
+
+let employee: Employee = {
+    id: 1,
     name: 'Mosh',
-    retire: (date :Date)=>{
+    retire:(date: Date)=>{
         console.log(date);
     }
-};
+}
