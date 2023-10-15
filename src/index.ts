@@ -1,30 +1,28 @@
 class Person {
-    constructor(public firstName:string, public lastName:string){} 
-    
+    constructor(public firstName: string, public lastName: string) {}
 
-    get fullName(){
-        return this.firstName+ ' ' + this.lastName;
+    get fullName() {
+        return this.firstName + ' ' + this.lastName;
     }
-    walk(){
+
+    walk() {
         console.log('Walking');
     }
-
 }
 
-class Student extends Person{
-    constructor(public studentId: number, firstName: string, lastName: string){
+class Student extends Person {
+    constructor(public studentId: number, firstName: string, lastName: string) {
         super(firstName, lastName);
     }
-    takeTest(){
+
+    takeTest() {
         console.log('Taking a test');
     }
 }
 
-class Teacher extends Person{
+class Teacher extends Person {
     override get fullName(): string {
-        return 'Professor' + super.fullName;
+        return 'Professor ' + super.fullName;
     }
 }
 
-let teacher = new Teacher('John', 'Smith');
-console.log(teacher.fullName);
