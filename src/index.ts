@@ -1,18 +1,24 @@
-class Ride{
-   private static _activeRides: number = 0;
+class Person {
+    constructor(public firstName:string, public lastName:string){} 
+    
 
-    start() {Ride._activeRides++};
-    stop() {Ride._activeRides--};
+    getFullName(){
+        return this.firstName+ ' ' + this.lastName;
+    }
+    walk(){
+        console.log('Walking');
+    }
 
-    static get activeRides(){
-        return Ride._activeRides;
+}
+
+class Student extends Person{
+    constructor(public studentId: number, public firstName: string, public lastName: string){
+        super(firstName, lastName);
+    }
+    takeTest(){
+        console.log('Taking a test');
     }
 }
 
-let ride1 = new Ride();
-ride1.start();
-
-let ride2 = new Ride();
-ride2.start();
-
-console.log(Ride.activeRides);
+let student = new Student(1, 'kartik', 'narang');
+student.walk();
