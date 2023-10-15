@@ -1,5 +1,9 @@
-// Type Assertions in TS
+// The Unknown Type
 
-let phone = <HTMLInputElement>document.getElementById('phone');
+function render(document: unknown) {
+     // Narrowing
 
-phone.value;
+    if(/*typeof document === 'string'*/ document instanceof wordDocument){
+        document.toUpperCase();
+     }
+}
