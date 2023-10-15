@@ -3,7 +3,7 @@
 class Account {
     readonly id: number;
     owner: string;
-    balance: number;
+    private balance: number;
     nickname?: string;
 
     constructor(id: number, owner: string, balance: number){
@@ -20,9 +20,17 @@ class Account {
             this.balance += amount;
         }
     }
+    
+    getBalance(): number{
+        return this.balance;
+    }
 };
+
+
 
 
 let account = new Account(1,'kartik',0);
 account.deposit(100);
 console.log(account instanceof Account);
+// console.log(account.balance) won't work since balance is a private variable
+console.log(account.getBalance());
