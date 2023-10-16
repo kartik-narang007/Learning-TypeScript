@@ -6,7 +6,7 @@ class Person {
     }
 
     walk() {
-        console.log('Walking');
+            console.log('Walking');
     }
 }
 
@@ -26,3 +26,20 @@ class Teacher extends Person {
     }
 }
 
+class Principal extends Person{
+    override get fullName(): string{
+        return 'Principal ' + super.fullName
+    }
+}
+
+printNames([
+    new Student(1, 'Kartik', 'Narang'),
+    new Teacher('Kartik', 'Narang'),
+    new Principal('Kartik', 'Narang')
+
+])
+
+function printNames(people: Person[]){
+    for(let person of people)
+        console.log(person.fullName);
+}

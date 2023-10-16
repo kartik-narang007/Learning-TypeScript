@@ -1,22 +1,42 @@
 "use strict";
-class Account {
-    constructor(id, owner, balance) {
-        this.id = id;
-        this.owner = owner;
-        this.balance = balance;
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
-    ;
-    deposit(amount) {
-        if (amount <= 0) {
-            throw new Error('invalid amount');
-        }
-        else {
-            this.balance += amount;
-        }
+    get fullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+    walk() {
+        console.log('Walking');
     }
 }
-;
-let account = new Account(1, 'kartik', 0);
-account.deposit(100);
-console.log(account instanceof Account);
+class Student extends Person {
+    constructor(studentId, firstName, lastName) {
+        super(firstName, lastName);
+        this.studentId = studentId;
+    }
+    takeTest() {
+        console.log('Taking a test');
+    }
+}
+class Teacher extends Person {
+    get fullName() {
+        return 'Professor ' + super.fullName;
+    }
+}
+class Principal extends Person {
+    get fullName() {
+        return 'Principal ' + super.fullName;
+    }
+}
+printNames([
+    new Student(1, 'Kartik', 'Narang'),
+    new Teacher('Kartik', 'Narang'),
+    new Principal('Kartik', 'Narang')
+]);
+function printNames(people) {
+    for (let person of people)
+        console.log(person.fullName);
+}
 //# sourceMappingURL=index.js.map
