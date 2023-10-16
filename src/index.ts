@@ -1,9 +1,6 @@
-//Generics Classes in TS
+//Generics wrapInArray in TS
 
-class KeyValuePair<K,V>{
-    constructor(public key: K, public value: V){
-
-    }
+function wrapInArray<T>(value: T){
+    return [value];
 }
-
-let pair = new KeyValuePair(1, 'Apple');
+    let numbers = wrapInArray('1');
