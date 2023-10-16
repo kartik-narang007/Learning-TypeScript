@@ -1,13 +1,9 @@
-abstract class Shape{
-    constructor(public color: string){}
-    abstract render() : void;
+//Generics Classes in TS
+
+class KeyValuePair<K,V>{
+    constructor(public key: K, public value: V){
+
+    }
 }
 
-class Circle extends Shape{
-    constructor(public radius: number, color: string){
-        super(color);
-    }
-    override render() : void{
-        console.log('rendering a circle')
-    }
-}
+let pair = new KeyValuePair(1, 'Apple');
