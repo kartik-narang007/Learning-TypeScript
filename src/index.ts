@@ -1,14 +1,32 @@
-//Generics Contraints
-class Person{
-    constructor(public name:string){}
+//Extending Generics Classes
+
+interface Product{
+    name: string,
+    price: number
 }
 
-class Customer extends Person{
+class Store<T>{
+    protected _objects: T[] = [];
 
+    add(obj: T): void{
+        this._objects.push(obj);
+    }
 }
 
 
-function echo<T extends Person>(value:T):T{
-    return value;
+//pass on the generic type parameter
+class CompressibleStore<T> extends Store<T>{
+    compress(){}
 }
-echo(new Customer('a'));
+
+class SearchableStore<T extends {name:string}> extends Store<T>{
+    find(name:string): T | undefined{
+        return this._objects.find(obj=>obj.name === name);
+    }
+}
+
+class ProductStore extends Store<Product>{
+    filterByCategory(category:string): Product[]{
+        return [];
+    }
+}
