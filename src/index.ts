@@ -1,6 +1,14 @@
-//Generics wrapInArray in TS
-
-function wrapInArray<T>(value: T){
-    return [value];
+//Generics Contraints
+class Person{
+    constructor(public name:string){}
 }
-    let numbers = wrapInArray('1');
+
+class Customer extends Person{
+
+}
+
+
+function echo<T extends Person>(value:T):T{
+    return value;
+}
+echo(new Customer('a'));
